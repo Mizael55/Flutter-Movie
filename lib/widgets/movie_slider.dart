@@ -88,16 +88,19 @@ class MoviePoster extends StatelessWidget {
           GestureDetector(
             onTap: () => Navigator.pushNamed(context, 'details',
                 arguments: movie),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: FadeInImage(
-                placeholder: const AssetImage('assets/no-image.jpg'),
-                image: NetworkImage(
-                  movie.fullPosterImg,
+            child: Hero(
+              tag: movie.id,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: FadeInImage(
+                  placeholder: const AssetImage('assets/no-image.jpg'),
+                  image: NetworkImage(
+                    movie.fullPosterImg,
+                  ),
+                  fit: BoxFit.cover,
+                  width: 130,
+                  height: 190,
                 ),
-                fit: BoxFit.cover,
-                width: 130,
-                height: 190,
               ),
             ),
           ),
